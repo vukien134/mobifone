@@ -1,0 +1,48 @@
+﻿using Microsoft.EntityFrameworkCore.Migrations;
+
+#nullable disable
+
+namespace Accounting.Migrations.TenantDbMigration
+{
+    public partial class MTenantStatement200L17 : Migration
+    {
+        protected override void Up(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.AddColumn<string>(
+                name: "Acc",
+                table: "TenantFStatement200L17",
+                type: "character varying(30)",
+                maxLength: 30,
+                nullable: true);
+
+            migrationBuilder.AlterColumn<string>(
+                name: "Description",
+                table: "TenantFStatement200L06",
+                type: "character varying(500)",
+                maxLength: 500,
+                nullable: true,
+                oldClrType: typeof(string),
+                oldType: "character varying(250)",
+                oldMaxLength: 250,
+                oldNullable: true);
+        }
+
+        protected override void Down(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropColumn(
+                name: "Acc",
+                table: "TenantFStatement200L17");
+
+            migrationBuilder.AlterColumn<string>(
+                name: "Description",
+                table: "TenantFStatement200L06",
+                type: "character varying(250)",
+                maxLength: 250,
+                nullable: true,
+                oldClrType: typeof(string),
+                oldType: "character varying(500)",
+                oldMaxLength: 500,
+                oldNullable: true);
+        }
+    }
+}

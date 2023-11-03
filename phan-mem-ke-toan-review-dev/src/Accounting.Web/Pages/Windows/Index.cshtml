@@ -1,0 +1,33 @@
+﻿@page
+@using Accounting.Localization
+@using Microsoft.Extensions.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Layout
+@using Accounting.Web.Pages.Windows
+@model IndexModel
+@inject IStringLocalizer<AccountingResource> L
+@inject IPageLayout PageLayout
+@{
+    PageLayout.Content.MenuItemName = "Config";
+}
+@section scripts
+{
+    <abp-script src="/Pages/Windows/Index.js" />
+}
+<abp-card>
+    <abp-card-header>        
+        <abp-row>
+            <abp-column size-md="_6">
+                <abp-card-title><h2>@L["Window"]</h2></abp-card-title>
+            </abp-column>
+            <abp-column size-md="_6" class="text-right">
+                <abp-button id="NewWindowButton"
+                            text="@L["NewWindow"].Value"
+                            icon="plus"
+                            button-type="Primary"/>
+            </abp-column>
+        </abp-row>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="WindowsTable"></abp-table>
+    </abp-card-body>
+</abp-card>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XtraReportsLayoutSerializer SerializerVersion="21.2.6.0" Ref="0" ControlType="DevExpress.XtraReports.UI.XtraReport, DevExpress.XtraReports.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Name="Report2" Margins="0, 574, 0, 100" PaperKind="A4" PageWidth="827" PageHeight="1169" Version="21.2" DataMember="PrintingVoucherAccounts" Font="Arial, 9.75pt">
+  <Bands>
+    <Item1 Ref="1" ControlType="DetailBand" Name="Detail" HeightF="23">
+      <Controls>
+        <Item1 Ref="2" ControlType="XRTable" Name="table1" TextAlignment="TopLeft" SizeF="243.66663,23" LocationFloat="0,0">
+          <Rows>
+            <Item1 Ref="3" ControlType="XRTableRow" Name="tableRow1" Weight="1">
+              <Cells>
+                <Item1 Ref="4" ControlType="XRTableCell" Name="tableCell1" Weight="0.5642955798683145" ProcessDuplicatesMode="Merge" Text="[Type]" TextAlignment="TopLeft" Padding="2,2,0,0,96">
+                  <StylePriority Ref="5" UseTextAlignment="false" />
+                </Item1>
+                <Item2 Ref="6" ControlType="XRTableCell" Name="tableCell2" Weight="1.056771454061391" Text="[AccCode]" Padding="2,2,0,0,96" />
+                <Item3 Ref="7" ControlType="XRTableCell" Name="tableCell3" Weight="1.3789329660702951" Text="[Amount]" TextAlignment="TopRight" Padding="2,2,0,0,96">
+                  <StylePriority Ref="8" UseTextAlignment="false" />
+                </Item3>
+              </Cells>
+            </Item1>
+          </Rows>
+          <StylePriority Ref="9" UseTextAlignment="false" />
+        </Item1>
+      </Controls>
+    </Item1>
+    <Item2 Ref="10" ControlType="TopMarginBand" Name="TopMargin" HeightF="0" Visible="false" />
+    <Item3 Ref="11" ControlType="BottomMarginBand" Name="BottomMargin" Visible="false" />
+  </Bands>
+</XtraReportsLayoutSerializer>

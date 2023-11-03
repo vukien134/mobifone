@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<HSoThueDTu xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue">
+  <HSoKhaiThue id="ID_1">
+    <TTinChung>
+      <TTinDVu>
+        <maDVu>HTKK</maDVu>
+        <tenDVu>HỖ TRỢ KÊ KHAI THUẾ</tenDVu>
+        <pbanDVu>4.0.6</pbanDVu>
+        <ttinNhaCCapDVu>2D61B4669453077333E69E40A001FFEA</ttinNhaCCapDVu>
+      </TTinDVu>
+      <TTinTKhaiThue>
+        <TKhaiThue>
+          <maTKhai>01</maTKhai>
+          <tenTKhai>TỜ KHAI THUẾ GIÁ TRỊ GIA TĂNG (Mẫu số 01/GTGT)</tenTKhai>
+          <moTaBMau>(Ban hành kèm theo Thông tư số 26/2015/TT-BTC ngày 27/02/2015 của Bộ Tài chính)</moTaBMau>
+          <pbanTKhaiXML>2.1.2</pbanTKhaiXML>
+          <loaiTKhai>C</loaiTKhai>
+          <soLan>0</soLan>
+          <KyKKhaiThue>
+            <kieuKy>M</kieuKy>
+            <kyKKhai>08/2018</kyKKhai>
+            <kyKKhaiTuNgay>01/08/2018</kyKKhaiTuNgay>
+            <kyKKhaiDenNgay>31/08/2018</kyKKhaiDenNgay>
+            <kyKKhaiTuThang />
+            <kyKKhaiDenThang />
+          </KyKKhaiThue>
+          <maCQTNoiNop>10101</maCQTNoiNop>
+          <tenCQTNoiNop>Chi cục Thuế Quận Ba Đình</tenCQTNoiNop>
+          <ngayLapTKhai>2018-09-05</ngayLapTKhai>
+          <GiaHan>
+            <maLyDoGiaHan />
+            <lyDoGiaHan />
+          </GiaHan>
+          <nguoiKy />
+          <ngayKy>2018-09-05</ngayKy>
+          <nganhNgheKD />
+        </TKhaiThue>
+        <NNT>
+          <mst>0102236276</mst>
+          <tenNNT>BUI THI QUYEN</tenNNT>
+          <dchiNNT>LE VAN LUONG</dchiNNT>
+          <phuongXa />
+          <maHuyenNNT />
+          <tenHuyenNNT>THANH XUAN</tenHuyenNNT>
+          <maTinhNNT />
+          <tenTinhNNT>HA NOI</tenTinhNNT>
+          <dthoaiNNT />
+          <faxNNT />
+          <emailNNT />
+        </NNT>
+      </TTinTKhaiThue>
+    </TTinChung>
+    <CTieuTKhaiChinh>
+      <tieuMucHachToan>1701</tieuMucHachToan>
+      <ct21>0</ct21>
+      <ct22>0</ct22>
+      <GiaTriVaThueGTGTHHDVMuaVao>
+        <ct23>0</ct23>
+        <ct24>0</ct24>
+      </GiaTriVaThueGTGTHHDVMuaVao>
+      <ct25>0</ct25>
+      <ct26>0</ct26>
+      <HHDVBRaChiuThueGTGT>
+        <ct27>22000000</ct27>
+        <ct28>2200000</ct28>
+      </HHDVBRaChiuThueGTGT>
+      <ct29>0</ct29>
+      <HHDVBRaChiuTSuat5>
+        <ct30>0</ct30>
+        <ct31>0</ct31>
+      </HHDVBRaChiuTSuat5>
+      <HHDVBRaChiuTSuat10>
+        <ct32>22000000</ct32>
+        <ct33>2200000</ct33>
+      </HHDVBRaChiuTSuat10>
+      <HHDVBRaKhongTinhThue>
+        <ct32a>0</ct32a>
+      </HHDVBRaKhongTinhThue>
+      <TongDThuVaThueGTGTHHDVBRa>
+        <ct34>22000000</ct34>
+        <ct35>2200000</ct35>
+      </TongDThuVaThueGTGTHHDVBRa>
+      <ct36>2200000</ct36>
+      <ct37>0</ct37>
+      <ct38>0</ct38>
+      <ct39>0</ct39>
+      <ct40a>2200000</ct40a>
+      <ct40b>0</ct40b>
+      <ct40>2200000</ct40>
+      <ct41>2200000</ct41>
+      <ct42>0</ct42>
+      <ct43>2200000</ct43>
+    </CTieuTKhaiChinh>
+  </HSoKhaiThue>
+</HSoThueDTu>

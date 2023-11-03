@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+	<Import Project="..\..\common.props" />
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<RootNamespace>Accounting</RootNamespace>
+	</PropertyGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Accounting.Domain.Shared\Accounting.Domain.Shared.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+		<PackageReference Include="Volo.Abp.ObjectExtending" Version="5.3.1" />
+		<PackageReference Include="Volo.Abp.Account.Application.Contracts" Version="5.3.1" />
+		<PackageReference Include="Volo.Abp.Identity.Application.Contracts" Version="5.3.1" />
+		<PackageReference Include="Volo.Abp.PermissionManagement.Application.Contracts" Version="5.3.1" />
+		<PackageReference Include="Volo.Abp.TenantManagement.Application.Contracts" Version="5.3.1" />
+		<PackageReference Include="Volo.Abp.FeatureManagement.Application.Contracts" Version="5.3.1" />
+		<PackageReference Include="Volo.Abp.SettingManagement.Application.Contracts" Version="5.3.1" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Remove="Reports\DebitBooks\" />
+		<None Remove="Reports\ImportExports\" />
+		<None Remove="Reports\Others\" />
+		<None Remove="Catgories\Others\Other\" />
+		<None Remove="Reports\Financials\Tenant\" />
+		<None Remove="Vouchers\RefVouchers\" />
+		<None Remove="Catgories\Others\ExchanRates\" />
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="Reports\DebitBooks\" />
+		<Folder Include="Catgories\Others\Other\" />
+		<Folder Include="Catgories\Others\ExchanRates\" />
+	</ItemGroup>
+</Project>

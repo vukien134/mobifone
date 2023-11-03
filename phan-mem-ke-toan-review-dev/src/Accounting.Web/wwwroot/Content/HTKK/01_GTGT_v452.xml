@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<HSoThueDTu xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue">
+  <HSoKhaiThue id="ID_1">
+    <TTinChung>
+      <TTinDVu>
+        <maDVu>HTKK</maDVu>
+        <tenDVu>HỖ TRỢ KÊ KHAI THUẾ</tenDVu>
+        <pbanDVu>4.5.2</pbanDVu>
+        <ttinNhaCCapDVu>0735BE9191DECED29555EABA5C95EF3C</ttinNhaCCapDVu>
+      </TTinDVu>
+      <TTinTKhaiThue>
+        <TKhaiThue>
+          <maTKhai>01</maTKhai>
+          <tenTKhai>TỜ KHAI THUẾ GIÁ TRỊ GIA TĂNG (Mẫu số 01/GTGT)</tenTKhai>
+          <moTaBMau>(Ban hành kèm theo Thông tư số 26/2015/TT-BTC ngày 27/02/2015 của Bộ Tài chính)</moTaBMau>
+          <pbanTKhaiXML>2.4.0</pbanTKhaiXML>
+          <loaiTKhai>C</loaiTKhai>
+          <soLan>0</soLan>
+          <KyKKhaiThue>
+            <kieuKy>M</kieuKy>
+            <kyKKhai>02/2021</kyKKhai>
+            <kyKKhaiTuNgay>01/02/2021</kyKKhaiTuNgay>
+            <kyKKhaiDenNgay>28/02/2021</kyKKhaiDenNgay>
+            <kyKKhaiTuThang />
+            <kyKKhaiDenThang />
+          </KyKKhaiThue>
+          <maCQTNoiNop>10101</maCQTNoiNop>
+          <tenCQTNoiNop>Chi cục Thuế Quận Ba Đình</tenCQTNoiNop>
+          <ngayLapTKhai>2021-03-10</ngayLapTKhai>
+          <GiaHan>
+            <maLyDoGiaHan />
+            <lyDoGiaHan />
+          </GiaHan>
+          <nguoiKy />
+          <ngayKy>2021-03-10</ngayKy>
+          <nganhNgheKD />
+        </TKhaiThue>
+        <NNT>
+          <mst>0102236276</mst>
+          <tenNNT>CÔNG TY CỔ PHẦN VACOM</tenNNT>
+          <dchiNNT>Số 144c ngõ 71, phố Tân ấp, Phường Phúc Xá, Quận Ba Đình, Hà Nội</dchiNNT>
+          <phuongXa />
+          <maHuyenNNT />
+          <tenHuyenNNT></tenHuyenNNT>
+          <maTinhNNT />
+          <tenTinhNNT></tenTinhNNT>
+          <dthoaiNNT />
+          <faxNNT />
+          <emailNNT />
+        </NNT>
+      </TTinTKhaiThue>
+    </TTinChung>
+    <CTieuTKhaiChinh>
+      <ma_NganhNghe>00</ma_NganhNghe>
+      <ten_NganhNghe>Hoạt động sản xuất kinh doanh thông thường</ten_NganhNghe>
+      <tieuMucHachToan>1701</tieuMucHachToan>
+      <ct21>0</ct21>
+      <ct22>0</ct22>
+      <GiaTriVaThueGTGTHHDVMuaVao>
+        <ct23>0</ct23>
+        <ct24>0</ct24>
+      </GiaTriVaThueGTGTHHDVMuaVao>
+      <ct25>0</ct25>
+      <ct26>0</ct26>
+      <HHDVBRaChiuThueGTGT>
+        <ct27>0</ct27>
+        <ct28>0</ct28>
+      </HHDVBRaChiuThueGTGT>
+      <ct29>0</ct29>
+      <HHDVBRaChiuTSuat5>
+        <ct30>0</ct30>
+        <ct31>0</ct31>
+      </HHDVBRaChiuTSuat5>
+      <HHDVBRaChiuTSuat10>
+        <ct32>0</ct32>
+        <ct33>0</ct33>
+      </HHDVBRaChiuTSuat10>
+      <HHDVBRaKhongTinhThue>
+        <ct32a>0</ct32a>
+      </HHDVBRaKhongTinhThue>
+      <TongDThuVaThueGTGTHHDVBRa>
+        <ct34>0</ct34>
+        <ct35>0</ct35>
+      </TongDThuVaThueGTGTHHDVBRa>
+      <ct36>0</ct36>
+      <ct37>0</ct37>
+      <ct38>0</ct38>
+      <ct39>0</ct39>
+      <ct40a>0</ct40a>
+      <ct40b>0</ct40b>
+      <ct40>0</ct40>
+      <ct41>0</ct41>
+      <ct42>0</ct42>
+      <ct43>0</ct43>
+    </CTieuTKhaiChinh>
+  </HSoKhaiThue>
+</HSoThueDTu>

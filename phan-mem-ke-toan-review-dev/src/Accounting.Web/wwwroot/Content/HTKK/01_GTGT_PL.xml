@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<HSoThueDTu xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue">
+  <HSoKhaiThue id="ID_1">
+    <TTinChung>
+      <TTinDVu>
+        <maDVu>HTKK</maDVu>
+        <tenDVu>HỖ TRỢ KÊ KHAI THUẾ</tenDVu>
+        <pbanDVu>4.7.7</pbanDVu>
+        <ttinNhaCCapDVu>2382EF8E5C9C8DD1AA780590B4A68181</ttinNhaCCapDVu>
+      </TTinDVu>
+      <TTinTKhaiThue>
+        <TKhaiThue>
+          <maTKhai>842</maTKhai>
+          <tenTKhai>TỜ KHAI THUẾ GIÁ TRỊ GIA TĂNG (Mẫu số 01/GTGT)</tenTKhai>
+          <moTaBMau>(Ban hành kèm theo Thông tư số 80/2021/TT-BTC ngày 29 tháng 9 năm 2021 của Bộ trưởng Bộ Tài chính)</moTaBMau>
+          <pbanTKhaiXML>2.5.1</pbanTKhaiXML>
+          <loaiTKhai>C</loaiTKhai>
+          <soLan>0</soLan>
+          <KyKKhaiThue>
+            <kieuKy>M</kieuKy>
+            <kyKKhai>03/2022</kyKKhai>
+            <kyKKhaiTuNgay>01/03/2022</kyKKhaiTuNgay>
+            <kyKKhaiDenNgay>31/03/2022</kyKKhaiDenNgay>
+            <kyKKhaiTuThang />
+            <kyKKhaiDenThang />
+          </KyKKhaiThue>
+          <maCQTNoiNop>10111</maCQTNoiNop>
+          <tenCQTNoiNop>Chi cục Thuế Quận Thanh Xuân</tenCQTNoiNop>
+          <ngayLapTKhai>2022-04-18</ngayLapTKhai>
+          <GiaHan>
+            <maLyDoGiaHan />
+            <lyDoGiaHan />
+          </GiaHan>
+          <nguoiKy />
+          <ngayKy>2022-04-18</ngayKy>
+          <nganhNgheKD />
+        </TKhaiThue>
+        <NNT>
+          <mst>0102236276</mst>
+          <tenNNT>Công ty cổ phần vacom</tenNNT>
+          <dchiNNT>23 Lê văn lương</dchiNNT>
+          <phuongXa />
+          <maHuyenNNT />
+          <tenHuyenNNT>Thanh Xuân</tenHuyenNNT>
+          <maTinhNNT />
+          <tenTinhNNT>Hà Nội</tenTinhNNT>
+          <dthoaiNNT />
+          <faxNNT />
+          <emailNNT />
+        </NNT>
+      </TTinTKhaiThue>
+    </TTinChung>
+    <CTieuTKhaiChinh>
+      <ma_NganhNghe>00</ma_NganhNghe>
+      <ten_NganhNghe>Hoạt động sản xuất kinh doanh thông thường</ten_NganhNghe>
+      <tieuMucHachToan>1701</tieuMucHachToan>
+      <Header>
+        <ct09 />
+        <ct10 />
+        <DiaChiHDSXKDKhacTinhNDTSC>
+          <ct11a_phuongXa_ma />
+          <ct11a_phuongXa_ten />
+          <ct11b_quanHuyen_ma />
+          <ct11b_quanHuyen_ten />
+          <ct11c_tinhTP_ma />
+          <ct11c_tinhTP_ten />
+        </DiaChiHDSXKDKhacTinhNDTSC>
+      </Header>
+      <ct21>0</ct21>
+      <ct22>0</ct22>
+      <GiaTriVaThueGTGTHHDVMuaVao>
+        <ct23>0</ct23>
+        <ct24>0</ct24>
+      </GiaTriVaThueGTGTHHDVMuaVao>
+      <HangHoaDichVuNhapKhau>
+        <ct23a>0</ct23a>
+        <ct24a>0</ct24a>
+      </HangHoaDichVuNhapKhau>
+      <ct25>0</ct25>
+      <ct26>0</ct26>
+      <HHDVBRaChiuThueGTGT>
+        <ct27>0</ct27>
+        <ct28>0</ct28>
+      </HHDVBRaChiuThueGTGT>
+      <ct29>0</ct29>
+      <HHDVBRaChiuTSuat5>
+        <ct30>0</ct30>
+        <ct31>0</ct31>
+      </HHDVBRaChiuTSuat5>
+      <HHDVBRaChiuTSuat10>
+        <ct32>0</ct32>
+        <ct33>0</ct33>
+      </HHDVBRaChiuTSuat10>
+      <ct32a>0</ct32a>
+      <TongDThuVaThueGTGTHHDVBRa>
+        <ct34>0</ct34>
+        <ct35>0</ct35>
+      </TongDThuVaThueGTGTHHDVBRa>
+      <ct36>0</ct36>
+      <ct37>0</ct37>
+      <ct38>0</ct38>
+      <ct39a>0</ct39a>
+      <ct40a>0</ct40a>
+      <ct40b>0</ct40b>
+      <ct40>0</ct40>
+      <ct41>0</ct41>
+      <ct42>0</ct42>
+      <ct43>0</ct43>
+    </CTieuTKhaiChinh>
+    <PLuc>
+      <PL_NQ101_GTGT>
+	
+      </PL_NQ101_GTGT>
+    </PLuc>
+  </HSoKhaiThue>
+</HSoThueDTu>

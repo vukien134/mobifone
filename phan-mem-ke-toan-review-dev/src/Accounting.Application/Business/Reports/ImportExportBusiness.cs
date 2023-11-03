@@ -1,0 +1,438 @@
+﻿using Accounting.Caching;
+using Accounting.Categories.OrgUnits;
+using Accounting.Categories.Others;
+using Accounting.Categories.Products;
+using Accounting.Catgories.Accounts;
+using Accounting.Catgories.OrgUnits;
+using Accounting.Catgories.Others.Circularses;
+using Accounting.Constants;
+using Accounting.DomainServices.Categories;
+using Accounting.DomainServices.Categories.Others;
+using Accounting.DomainServices.Licenses;
+using Accounting.DomainServices.Reports;
+using Accounting.DomainServices.Vouchers;
+using Accounting.Exceptions;
+using Accounting.Helpers;
+using Accounting.Licenses;
+using Accounting.Localization;
+using Accounting.Report;
+using Accounting.Reports;
+using Accounting.Reports.Cores;
+using Accounting.Reports.Financials;
+using Accounting.Reports.Financials.StatementOfValueAddedTax;
+using Accounting.Reports.ImportExports;
+using Accounting.Reports.ImportExports.Parameters;
+using Accounting.Reports.Tenants;
+using Accounting.Reports.Tenants.TenantStatementTaxs;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Localization;
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Text.Json.Nodes;
+using System.Threading.Tasks;
+using System.Xml;
+using Volo.Abp.DependencyInjection;
+using Volo.Abp.MultiTenancy;
+using Volo.Abp.ObjectMapping;
+using Volo.Abp.Uow;
+
+namespace Accounting.Business
+{
+    public class ImportExportBusiness : BaseBusiness, IUnitOfWorkEnabled
+    {
+        #region Fields
+        private readonly ReportDataService _reportDataService;
+        private readonly WebHelper _webHelper;
+        private readonly ReportTemplateService _reportTemplateService;
+        private readonly IWebHostEnvironment _hostingEnvironment;
+        private readonly YearCategoryService _yearCategoryService;
+        private readonly AccountSystemService _accountSystemService;
+        private readonly TenantSettingService _tenantSettingService;
+        private readonly VoucherCategoryService _voucherCategoryService;
+        private readonly ProductGroupAppService _productGroupAppService;
+        private readonly WarehouseService _warehouseService;
+        private readonly ProductService _productService;
+        private readonly ProductLotService _productLotService;
+        private readonly OrgUnitService _orgUnitService;
+        private readonly CircularsService _circularsService;
+        private readonly AccPartnerService _accPartnerService;
+        private readonly IObjectMapper _objectMapper;
+
+        #endregion
+        public ImportExportBusiness(ReportDataService reportDataService,
+                        WebHelper webHelper,
+                        ReportTemplateService reportTemplateService,
+                        IWebHostEnvironment hostingEnvironment,
+                        YearCategoryService yearCategoryService,
+                        AccountSystemService accountSystemService,
+                        TenantSettingService tenantSettingService,
+                        VoucherCategoryService voucherCategoryService,
+                        ProductGroupAppService productGroupAppService,
+                        WarehouseService warehouseService,
+                        ProductService productService,
+                        ProductLotService productLotService,
+                        OrgUnitService orgUnitService,
+                        CircularsService circularsService,
+                        AccPartnerService accPartnerService,
+                        IObjectMapper objectMapper,
+                        IStringLocalizer<AccountingResource> localizer) : base(localizer)
+        {
+            _reportDataService = reportDataService;
+            _webHelper = webHelper;
+            _reportTemplateService = reportTemplateService;
+            _hostingEnvironment = hostingEnvironment;
+            _yearCategoryService = yearCategoryService;
+            _accountSystemService = accountSystemService;
+            _tenantSettingService = tenantSettingService;
+            _voucherCategoryService = voucherCategoryService;
+            _productGroupAppService = productGroupAppService;
+            _warehouseService = warehouseService;
+            _productService = productService;
+            _productLotService = productLotService;
+            _orgUnitService = orgUnitService;
+            _circularsService = circularsService;
+            _accPartnerService = accPartnerService;
+            _objectMapper = objectMapper;
+        }
+        #region Methods
+        public async Task<ReportResponseDto<InventorySummaryBookDto>> CreateDataAsync(ReportRequestDto<InventorySummaryBookParameterDto> dto)
+        {
+            string orgCode = _webHelper.GetCurrentOrgUnit();
+            var dic = GetWarehouseBookParameter(dto.Parameters);
+            var lst = new List<InventorySummaryBookDto>();
+            var iEInventoryData = await GetIEInventoryData(dic);
+            var lstRankProduct = await _productGroupAppService.GetRankGroup(dto.Parameters.ProductGroupCode ?? "");
+            var product = await _productService.GetQueryableAsync();
+            var lstProduct = product.Where(p => p.OrgCode == _webHelper.GetCurrentOrgUnit()).ToList();
+            var productLot = await _productLotService.GetQueryableAsync();
+            var lstProductLot = productLot.Where(p => p.OrgCode == _webHelper.GetCurrentOrgUnit()).ToList();
+            var accSystem = await _accountSystemService.GetQueryableAsync();
+            var lstAccSystem = accSystem.Where(p => p.OrgCode == _webHelper.GetCurrentOrgUnit() && p.Year == _webHelper.GetCurrentYear());
+            var warehouse = await _warehouseService.GetQueryableAsync();
+            var lstWarehouse = warehouse.Where(p => p.OrgCode == _webHelper.GetCurrentOrgUnit());
+            foreach (var itemIEInventory in iEInventoryData)
+            {
+                if (dto.Parameters.CheckWarehouse == false) itemIEInventory.WarehouseCode = "";
+            }
+            var inventorySummaryBookData0 = (from a in iEInventoryData
+                                             join b in lstProduct on a.ProductCode equals b.Code into ajb
+                                             from b in ajb.DefaultIfEmpty()
+                                             join c in lstRankProduct on new { ProductGroupId = b?.ProductGroupId ?? "" } equals new { ProductGroupId = c.Id } into bjc
+                                             from c in bjc.DefaultIfEmpty()
+                                             group new { a, b, c } by new
+                                             {
+                                                 a.OrgCode,
+                                                 a.WarehouseCode,
+                                                 Rank = c?.Rank ?? 0,
+                                                 OrdGroup = c?.OrdGroup ?? "",
+                                                 a.ProductCode,
+                                                 ProductName = b?.Name ?? "",
+                                                 UnitCode = b?.UnitCode ?? "",
+                                                 a.ProductOriginCode,
+                                                 a.ProductLotCode,
+                                                 Specification = b?.Specification ?? ""
+
+                                             } into gr
+                                             select new InventorySummaryBookDto
+                                             {
+                                                 OrgCode = gr.Key.OrgCode,
+                                                 WarehouseCode = gr.Key.WarehouseCode,
+                                                 RankProductGroup = gr.Key.Rank + 2,
+                                                 OrdGroup = gr.Key.OrdGroup,
+                                                 ProductCode = gr.Key.ProductCode,
+                                                 ProductOriginCode = gr.Key.ProductOriginCode,
+                                                 ProductLotCode = gr.Key.ProductLotCode,
+                                                 ProductName = gr.Key.ProductName,
+                                                 UnitCode = gr.Key.UnitCode,
+                                                 Bold = "K",
+                                                 ImportQuantity1 = gr.Sum(p => p.a.ImportQuantity1),
+                                                 ImportAmount1 = gr.Sum(p => p.a.ImportAmount1),
+                                                 ImportAmountCur1 = gr.Sum(p => p.a.ImportAmountCur1),
+                                                 ImportPrice1 = (gr.Sum(p => p.a.ImportQuantity1) != 0) ? gr.Sum(p => p.a.ImportAmount1) / gr.Sum(p => p.a.ImportQuantity1) : null,
+                                                 ImportQuantity = gr.Sum(p => p.a.ImportQuantity),
+                                                 ImportAmount = gr.Sum(p => p.a.ImportAmount),
+                                                 ImportAmountCur = gr.Sum(p => p.a.ImportAmountCur),
+                                                 ExportQuantity = gr.Sum(p => p.a.ExportQuantity),
+                                                 ExportAmount = gr.Sum(p => p.a.ExportAmount),
+                                                 ExportAmountCur = gr.Sum(p => p.a.ExportAmountCur),
+                                                 ImportQuantity2 = gr.Sum(p => p.a.ImportQuantity2),
+                                                 ImportAmount2 = gr.Sum(p => p.a.ImportAmount2),
+                                                 ImportAmountCur2 = gr.Sum(p => p.a.ImportAmountCur2),
+                                                 ImportPrice2 = (gr.Sum(p => p.a.ImportQuantity2) != 0) ? gr.Sum(p => p.a.ImportAmount2) / gr.Sum(p => p.a.ImportQuantity2) : null,
+                                                 Amount2 = gr.Sum(p => p.a.Amount2),
+                                                 AmountCur2 = gr.Sum(p => p.a.AmountCur2),
+                                                 Specification = gr.Key.Specification
+                                             }).ToList();
+            var inventorySummaryBookData = (from a in inventorySummaryBookData0
+                                            group new { a } by new
+                                            {
+                                                a.OrgCode,
+                                                a.Acc,
+                                                a.WarehouseCode,
+                                                a.RankProductGroup,
+                                                a.OrdGroup,
+                                                a.ProductCode,
+                                                a.ProductName,
+                                                a.UnitCode,
+                                                a.Specification
+
+                                            } into gr
+                                            select new InventorySummaryBookDto
+                                            {
+                                                OrgCode = gr.Key.OrgCode,
+                                                Acc = gr.Key.Acc,
+                                                WarehouseCode = gr.Key.WarehouseCode,
+                                                RankProductGroup = gr.Key.RankProductGroup - 1,
+                                                OrdGroup = gr.Key.OrdGroup + @"00\",
+                                                ProductCode = gr.Key.ProductCode,
+                                                ProductOriginCode = "",
+                                                ProductLotCode = "",
+                                                ProductName = gr.Key.ProductName,
+                                                UnitCode = gr.Key.UnitCode,
+                                                Bold = "K",
+                                                ImportQuantity1 = gr.Sum(p => p.a.ImportQuantity1),
+                                                ImportAmount1 = gr.Sum(p => p.a.ImportAmount1),
+                                                ImportAmountCur1 = gr.Sum(p => p.a.ImportAmountCur1),
+                                                ImportPrice1 = gr.Max(p => p.a.ImportPrice1),
+                                                ImportQuantity = gr.Sum(p => p.a.ImportQuantity),
+                                                ImportAmount = gr.Sum(p => p.a.ImportAmount),
+                                                ImportAmountCur = gr.Sum(p => p.a.ImportAmountCur),
+                                                ExportQuantity = gr.Sum(p => p.a.ExportQuantity),
+                                                ExportAmount = gr.Sum(p => p.a.ExportAmount),
+                                                ExportAmountCur = gr.Sum(p => p.a.ExportAmountCur),
+                                                ImportQuantity2 = gr.Sum(p => p.a.ImportQuantity2),
+                                                ImportAmount2 = gr.Sum(p => p.a.ImportAmount2),
+                                                ImportAmountCur2 = gr.Sum(p => p.a.ImportAmountCur2),
+                                                ImportPrice2 = gr.Max(p => p.a.ImportPrice2),
+                                                Amount2 = gr.Sum(p => p.a.Amount2),
+                                                AmountCur2 = gr.Sum(p => p.a.AmountCur2),
+                                                Specification = gr.Key.Specification
+                                            }).ToList();
+
+            //data_NXT
+            var dataIEI = (from a in inventorySummaryBookData0
+                           join b in lstProduct on a.ProductCode equals b.Code
+                           join c in lstRankProduct on b.ProductGroupId equals c.Id
+                           where (a.ProductOriginCode ?? "") == "" && (a.ProductLotCode ?? "") == ""
+                           group new { a, b, c } by new
+                           {
+                               a.OrgCode,
+                               a.Acc,
+                               a.WarehouseCode,
+                               RankProductGroup = c.Rank,
+                               a.OrdGroup,
+                               ProductGroupCode = c.Code,
+                               ProductGroupName = c.Name
+                           } into gr
+                           select new InventorySummaryBookDto
+                           {
+                               OrgCode = gr.Key.OrgCode,
+                               Acc = gr.Key.Acc,
+                               WarehouseCode = gr.Key.WarehouseCode,
+                               RankProductGroup = gr.Key.RankProductGroup,
+                               OrdGroup = gr.Key.OrdGroup,
+                               ProductCode = gr.Key.ProductGroupCode,
+                               ProductGroupCode = gr.Key.ProductGroupCode,
+                               ProductOriginCode = "",
+                               ProductLotCode = "",
+                               ProductName = gr.Key.ProductGroupName,
+                               UnitCode = "",
+                               Bold = "C",
+                               ImportQuantity1 = gr.Sum(p => p.a.ImportQuantity1),
+                               ImportAmount1 = gr.Sum(p => p.a.ImportAmount1),
+                               ImportAmountCur1 = gr.Sum(p => p.a.ImportAmountCur1),
+                               ImportPrice1 = gr.Max(p => p.a.ImportPrice1),
+                               ImportQuantity = gr.Sum(p => p.a.ImportQuantity),
+                               ImportAmount = gr.Sum(p => p.a.ImportAmount),
+                               ImportAmountCur = gr.Sum(p => p.a.ImportAmountCur),
+                               ExportQuantity = gr.Sum(p => p.a.ExportQuantity),
+                               ExportAmount = gr.Sum(p => p.a.ExportAmount),
+                               ExportAmountCur = gr.Sum(p => p.a.ExportAmountCur),
+                               ImportQuantity2 = gr.Sum(p => p.a.ImportQuantity2),
+                               ImportAmount2 = gr.Sum(p => p.a.ImportAmount2),
+                               ImportAmountCur2 = gr.Sum(p => p.a.ImportAmountCur2),
+                               ImportPrice2 = gr.Max(p => p.a.ImportPrice2),
+                               Amount2 = gr.Sum(p => p.a.Amount2),
+                               AmountCur2 = gr.Sum(p => p.a.AmountCur2)
+                           }).ToList();
+            if (dto.Parameters.Type == "DK")
+            {
+                inventorySummaryBookData.Where(p => (p.ImportQuantity1 ?? 0) == 0 && (p.ImportAmount1 ?? 0) == 0).ToList();
+            }
+            else if (dto.Parameters.Type == "CK")
+            {
+                inventorySummaryBookData.Where(p => (p.ImportQuantity2 ?? 0) == 0 && (p.ImportAmount2 ?? 0) == 0).ToList();
+            }
+
+            inventorySummaryBookData = inventorySummaryBookData.Where(p => Math.Abs(p.ImportQuantity1 ?? 0) + Math.Abs(p.ImportAmount1 ?? 0) + Math.Abs(p.ImportQuantity ?? 0) + Math.Abs(p.ImportAmount ?? 0) + Math.Abs(p.ExportQuantity ?? 0) + Math.Abs(p.ExportAmount ?? 0) != 0).ToList();
+            foreach (var item in inventorySummaryBookData)
+            {
+                item.RankProductGroup = item.RankProductGroup + 1;
+                var space = "";
+                for (var i = 1; i < item.RankProductGroup; i++)
+                {
+                    space += "  ";
+                }
+                item.ProductName = space + item.ProductName;
+
+                item.ImportQuantity1 = (item.ImportQuantity1 == 0) ? null : item.ImportQuantity1;
+                item.ImportAmount1 = (item.ImportAmount1 == 0) ? null : item.ImportAmount1;
+                item.ImportAmountCur1 = (item.ImportAmountCur1 == 0) ? null : item.ImportAmountCur1;
+                item.ImportQuantity = (item.ImportQuantity == 0) ? null : item.ImportQuantity;
+                item.ImportAmount = (item.ImportAmount == 0) ? null : item.ImportAmount;
+                item.ImportAmountCur = (item.ImportAmountCur == 0) ? null : item.ImportAmountCur;
+                item.ExportQuantity = (item.ExportQuantity == 0) ? null : item.ExportQuantity;
+                item.ExportAmount = (item.ExportAmount == 0) ? null : item.ExportAmount;
+                item.ExportAmountCur = (item.ExportAmountCur == 0) ? null : item.ExportAmountCur;
+                item.ImportQuantity2 = (item.ImportQuantity2 == 0) ? null : item.ImportQuantity2;
+                item.ImportAmount2 = (item.ImportAmount2 == 0) ? null : item.ImportAmount2;
+                item.Amount2 = (item.Amount2 == 0) ? null : item.Amount2;
+                item.AmountCur2 = (item.AmountCur2 == 0) ? null : item.AmountCur2;
+            }
+            lst = (from a in inventorySummaryBookData
+                   join b in lstProductLot on a.ProductLotCode equals b.Code into ajb
+                   from b in ajb.DefaultIfEmpty()
+                   join c in lstProduct on a.ProductCode equals c.Code into bjc
+                   from c in bjc.DefaultIfEmpty()
+                   orderby a.Acc, a.WarehouseCode, a.OrdGroup, a.ProductCode, a.RankProductGroup, a.ProductLotCode, a.ProductOriginCode
+                   select new InventorySummaryBookDto
+                   {
+                       OrgCode = a.OrgCode,
+                       Acc = a.Acc,
+                       WarehouseCode = a.WarehouseCode,
+                       RankProductGroup = a.RankProductGroup,
+                       OrdGroup = a.OrdGroup,
+                       ProductCode = a.ProductCode,
+                       ProductOriginCode = a.ProductOriginCode,
+                       ProductLotCode = a.ProductLotCode,
+                       ProductName = a.ProductName,
+                       UnitCode = a.UnitCode,
+                       Bold = a.Bold,
+                       ImportQuantity1 = a.ImportQuantity1,
+                       ImportAmount1 = a.ImportAmount1,
+                       ImportAmountCur1 = a.ImportAmountCur1,
+                       ImportPrice1 = a.ImportPrice1,
+                       ImportQuantity = a.ImportQuantity,
+                       ImportAmount = a.ImportAmount,
+                       ImportAmountCur = a.ImportAmountCur,
+                       ExportQuantity = a.ExportQuantity,
+                       ExportAmount = a.ExportAmount,
+                       ExportAmountCur = a.ExportAmountCur,
+                       ImportQuantity2 = a.ImportQuantity2,
+                       ImportAmount2 = a.ImportAmount2,
+                       ImportAmountCur2 = a.ImportAmountCur2,
+                       ImportPrice2 = a.ImportPrice2,
+                       Amount2 = a.Amount2,
+                       AmountCur2 = a.AmountCur2,
+                       AvgBInventoryPrice = (a.ImportQuantity1 != 0) ? a.ImportAmount1 / a.ImportQuantity1 : 0,
+                       AvgImportPrice = (a.ImportQuantity != 0) ? a.ImportAmount / a.ImportQuantity : 0,
+                       AvgExportPrice = (a.ExportQuantity != 0) ? a.ExportAmount / a.ExportQuantity : 0,
+                       AvgEInventoryPrice = (a.ImportQuantity2 != 0) ? a.ImportAmount2 / a.ImportQuantity2 : 0,
+                       FromDate = dto.Parameters.FromDate,
+                       ToDate = dto.Parameters.ToDate,
+                       ExpiryDate = b?.ExpireDate ?? null,
+                       OverdueDate = (DateTime.Today > (b?.ExpireDate ?? DateTime.Today)) ? (int)((DateTime.Today - (b?.ExpireDate ?? DateTime.Today)).TotalDays) : 0,
+                       ComingDate = (DateTime.Today < (b?.ExpireDate ?? DateTime.Today)) ? (int)(((b?.ExpireDate ?? DateTime.Today) - DateTime.Today).TotalDays) : 0,
+                   }).ToList();
+            var reportResponse = new ReportResponseDto<InventorySummaryBookDto>();
+            reportResponse.Data = lst.OrderBy(p => p.Acc).ThenBy(p => p.WarehouseCode)
+                                                         .ThenBy(p => p.OrdGroup).ThenBy(p => p.RankProductGroup)
+                                                         .ThenBy(p => p.ProductLotCode).ThenBy(p => p.ProductOriginCode).ToList();
+            reportResponse.OrgUnit = await GetOrgUnit(_webHelper.GetCurrentOrgUnit());
+            reportResponse.RequestParameter = dto.Parameters;
+            reportResponse.TenantSetting = await GetTenantSetting(_webHelper.GetCurrentOrgUnit());
+            reportResponse.Circulars = await GetCircularsDto(_webHelper.GetCurrentOrgUnit(),
+                                    _webHelper.GetCurrentYear());
+            return reportResponse;
+        }
+        #endregion
+        #region Private
+        private async Task<List<IEInventoryDto>> GetIEInventoryData(Dictionary<string, object> dic)
+        {
+            var incurredData = await _reportDataService.GetIEInventoryAsync(dic);
+            return incurredData;
+        }
+
+        private Dictionary<string, object> GetWarehouseBookParameter(InventorySummaryBookParameterDto dto)
+        {
+            var dic = new Dictionary<string, object>();
+            dic.Add(WarehouseBookParameterConst.LstOrgCode, _webHelper.GetCurrentOrgUnit());
+            dic.Add(WarehouseBookParameterConst.FromDate, dto.FromDate);
+            dic.Add(WarehouseBookParameterConst.ToDate, dto.ToDate);
+            dic.Add(WarehouseBookParameterConst.Acc, dto.AccCode);
+            dic.Add("isTransfer", dto.CheckTransfer);
+            if (!string.IsNullOrEmpty(dto.ProductCode))
+            {
+                dic.Add(WarehouseBookParameterConst.ProductCode, dto.ProductCode);
+            }
+            if (!string.IsNullOrEmpty(dto.WarehouseCode))
+            {
+                dic.Add(WarehouseBookParameterConst.WarehouseCode, dto.WarehouseCode);
+            }
+            if (!string.IsNullOrEmpty(dto.ProductLotCode))
+            {
+                dic.Add(WarehouseBookParameterConst.ProductLotCode, dto.ProductLotCode);
+            }
+            if (!string.IsNullOrEmpty(dto.ProductOriginCode))
+            {
+                dic.Add(WarehouseBookParameterConst.ProductOriginCode, dto.ProductOriginCode);
+            }
+            if (!string.IsNullOrEmpty(dto.ProductGroupCode))
+            {
+                dic.Add(WarehouseBookParameterConst.ProductGroupCode, dto.ProductGroupCode);
+            }
+            dic.Add(WarehouseBookParameterConst.Year, _webHelper.GetCurrentYear());
+            return dic;
+        }
+
+        private async Task<OrgUnitDto> GetOrgUnit(string code)
+        {
+            var orgUnit = await _orgUnitService.GetByCodeAsync(code);
+            return _objectMapper.Map<OrgUnit, OrgUnitDto>(orgUnit);
+        }
+        private async Task<dynamic> GetTenantSetting(string orgCode)
+        {
+            dynamic exo = new System.Dynamic.ExpandoObject();
+
+            var tenantSettings = await _tenantSettingService.GetBySettingTypeAsync(orgCode, TenantSettingType.Report);
+            foreach (var setting in tenantSettings)
+            {
+                ((IDictionary<String, Object>)exo).Add(setting.Key, setting.Value);
+            }
+            return exo;
+        }
+        private string GetFileTemplatePath(string templateFile)
+        {
+            string rootPath = _hostingEnvironment.WebRootPath;
+            string lang = _webHelper.GetCurrentLanguage();
+            string filePath = Path.Combine(rootPath, FolderConst.ReportTemplate, lang, FolderConst.Report,
+                                        templateFile);
+            return filePath;
+        }
+        private async Task<CircularsDto> GetCircularsDto(string orgCode, int year)
+        {
+            var yearCategory = await _yearCategoryService.GetByYearAsync(orgCode, year);
+            if (yearCategory == null) return null;
+
+            var usingDecision = yearCategory.UsingDecision;
+            if (usingDecision == null) return null;
+
+            var circulars = await _circularsService.GetByCodeAsync(usingDecision.Value.ToString());
+            return _objectMapper.Map<Circulars, CircularsDto>(circulars);
+        }
+        private async Task<string> GetPartnerName(string orgCode, string code)
+        {
+            if (string.IsNullOrEmpty(code)) return null;
+            var partner = await _accPartnerService.GetAccPartnerByCodeAsync(code, orgCode);
+            if (partner == null) return null;
+
+            return partner.Name;
+        }
+        #endregion
+    }
+}

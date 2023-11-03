@@ -1,0 +1,62 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+	<RootNamespace>Accounting</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="DevExpress.Charts.v21.2.Core">
+      <HintPath>..\..\dll\DevExpress.Charts.v21.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.CodeParser.v21.2">
+      <HintPath>..\..\dll\DevExpress.CodeParser.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v21.2">
+      <HintPath>..\..\dll\DevExpress.Data.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.DataAccess.v21.2">
+      <HintPath>..\..\dll\DevExpress.DataAccess.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.DataVisualization.v21.2.Core">
+      <HintPath>..\..\dll\DevExpress.DataVisualization.v21.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Office.v21.2.Core">
+      <HintPath>..\..\dll\DevExpress.Office.v21.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v21.2.Core">
+      <HintPath>..\..\dll\DevExpress.Pdf.v21.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v21.2.Drawing">
+      <HintPath>..\..\dll\DevExpress.Pdf.v21.2.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.PivotGrid.v21.2.Core">
+      <HintPath>..\..\dll\DevExpress.PivotGrid.v21.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v21.2.Core">
+      <HintPath>..\..\dll\DevExpress.Printing.v21.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v21.2.Core">
+      <HintPath>..\..\dll\DevExpress.RichEdit.v21.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v21.2.Export">
+      <HintPath>..\..\dll\DevExpress.RichEdit.v21.2.Export.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v21.2.Core">
+      <HintPath>..\..\dll\DevExpress.Sparkline.v21.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpo.v21.2">
+      <HintPath>..\..\dll\DevExpress.Xpo.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v21.2">
+      <HintPath>..\..\dll\DevExpress.XtraCharts.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGauges.v21.2.Core">
+      <HintPath>..\..\dll\DevExpress.XtraGauges.v21.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v21.2">
+      <HintPath>..\..\dll\DevExpress.XtraReports.v21.2.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

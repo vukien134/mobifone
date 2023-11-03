@@ -1,0 +1,654 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<HSoThueDTu xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue">
+  <HSoKhaiThue id="ID_1">
+    <TTinChung>
+      <TTinDVu>
+        <maDVu>HTKK</maDVu>
+        <tenDVu>HỖ TRỢ KÊ KHAI THUẾ</tenDVu>
+        <pbanDVu>4.7.2</pbanDVu>
+        <ttinNhaCCapDVu>EC868E8DFD3FA4A28728472AD6376952</ttinNhaCCapDVu>
+      </TTinDVu>
+      <TTinTKhaiThue>
+        <TKhaiThue>
+          <maTKhai>473</maTKhai>
+          <tenTKhai>Tờ khai thuế đối với hộ kinh doanh, cá nhân kinh doanh</tenTKhai>
+          <moTaBMau>(Ban hành kèm theo Thông tư số 40/2021/TT-BTC ngày 01/6/2021 của Bộ trưởng Bộ Tài Chính)</moTaBMau>
+          <pbanTKhaiXML>2.5.3</pbanTKhaiXML>
+          <loaiTKhai>C</loaiTKhai>
+          <soLan>0</soLan>
+          <KyKKhaiThue>
+            <kieuKy>M</kieuKy>
+            <kyKKhai>12/2022</kyKKhai>
+            <kyKKhaiTuNgay>01/12/2022</kyKKhaiTuNgay>
+            <kyKKhaiDenNgay>31/12/2022</kyKKhaiDenNgay>
+            <kyKKhaiTuThang />
+            <kyKKhaiDenThang />
+          </KyKKhaiThue>
+          <maCQTNoiNop>
+          </maCQTNoiNop>
+          <tenCQTNoiNop>
+          </tenCQTNoiNop>
+          <ngayLapTKhai>2023-01-03</ngayLapTKhai>
+          <GiaHan>
+            <maLyDoGiaHan />
+            <lyDoGiaHan />
+          </GiaHan>
+          <nguoiKy />
+          <ngayKy>2022-12-31</ngayKy>
+          <nganhNgheKD />
+        </TKhaiThue>
+        <NNT>
+          <mst>0102236276</mst>
+          <tenNNT>CÔNG TY CỔ PHẦN VACOM</tenNNT>
+          <dchiNNT>Số 144c ngõ 71, phố Tân ấp, Phường Phúc Xá, Quận Ba Đình, Hà Nội</dchiNNT>
+          <phuongXa>Phúc Xá</phuongXa>
+          <maHuyenNNT />
+          <tenHuyenNNT>Hà Nội</tenHuyenNNT>
+          <maTinhNNT />
+          <tenTinhNNT>Ba Đình</tenTinhNNT>
+          <dthoaiNNT />
+          <faxNNT />
+          <emailNNT />
+        </NNT>
+      </TTinTKhaiThue>
+    </TTinChung>
+    <CTieuTKhaiChinh>
+      <Header>
+        <hkdcnkdnopthuekhoan>0</hkdcnkdnopthuekhoan>
+        <cnkdnopps>0</cnkdnopps>
+        <tccnkhainopthay>0</tccnkhainopthay>
+        <hkdcnkdnopkekhai>1</hkdcnkdnopkekhai>
+        <hkdcnkdnnxddoanhthu>0</hkdcnkdnnxddoanhthu>
+        <hkdchuyendoipptinhthue>0</hkdchuyendoipptinhthue>
+        <ct05>
+        </ct05>
+        <ct06 />
+        <CT08>
+          <NNgheKDoanh id="ID_1">
+            <maNNgheKDoanh>
+            </maNNgheKDoanh>
+            <tenNNgheKDoanh>
+            </tenNNgheKDoanh>
+          </NNgheKDoanh>
+        </CT08>
+        <ct08a>0</ct08a>
+        <ct09>0</ct09>
+        <ct09a>0</ct09a>
+        <ct10>0</ct10>
+        <CT11>
+          <tuGio>0</tuGio>
+          <tuPhut>0</tuPhut>
+          <denGio>0</denGio>
+          <denPhut>0</denPhut>
+        </CT11>
+        <CT12>
+          <ct12a_tdtt>0</ct12a_tdtt>
+          <ct12b_soNha>
+          </ct12b_soNha>
+          <ct12c_maPhuong>
+          </ct12c_maPhuong>
+          <ct12c_tenPhuong>
+          </ct12c_tenPhuong>
+          <ct12d_maQuan>
+          </ct12d_maQuan>
+          <ct12d_tenQuan>
+          </ct12d_tenQuan>
+          <ct12d_maTinh>
+          </ct12d_maTinh>
+          <ct12d_tenTinh>
+          </ct12d_tenTinh>
+          <ct12e_kdbiengioi>0</ct12e_kdbiengioi>
+        </CT12>
+        <CT13>
+          <ct13a_soNha />
+          <ct13b_maPhuong />
+          <ct13b_tenPhuong />
+          <ct13c_maQuan />
+          <ct13c_tenQuan />
+          <ct13d_maTinh />
+          <ct13d_tenTinh />
+        </CT13>
+        <ct17 />
+        <ct17_ngay xsi:nil="true" />
+        <CNKDChuaDangKyThue>
+          <ct18a_ngaySinh xsi:nil="true" />
+          <ct18b_maQuocTich />
+          <ct18b_tenQuocTich />
+          <ct18c_ma />
+          <ct18c_ten />
+          <ct18c_soCMND_CCCD />
+          <ct18c_1_ngayCap xsi:nil="true" />
+          <ct18c_2_noiCap_loai>01</ct18c_2_noiCap_loai>
+          <ct18c_2_noiCap_ten />
+          <ct18c_2_noiCap_ma />
+        </CNKDChuaDangKyThue>
+        <CNKDKhongCoCMND_CCCD>
+          <ct18d_ma>1020</ct18d_ma>
+          <ct18d_ten>Hộ chiếu</ct18d_ten>
+          <ct18d_soHoChieu />
+          <ct18d_1_ngayCap xsi:nil="true" />
+          <ct18d_2_noiCap_loai>02</ct18d_2_noiCap_loai>
+          <ct18d_2_noiCap_ten />
+          <ct18d_2_noiCap_ma />
+          <ct18dd_ma>1040</ct18dd_ma>
+          <ct18dd_ten>Giấy thông hành</ct18dd_ten>
+          <ct18dd_soGiayThongHanh />
+          <ct18dd_1_ngayCap xsi:nil="true" />
+          <ct18dd_2_noiCap_loai>03</ct18dd_2_noiCap_loai>
+          <ct18dd_2_noiCap_ten />
+          <ct18dd_2_noiCap_ma />
+          <ct18e_ma>1070</ct18e_ma>
+          <ct18e_ten>CMT biên giới</ct18e_ten>
+          <ct18e_soCMNDBienGioi />
+          <ct18e_1_ngayCap xsi:nil="true" />
+          <ct18e_2_noiCap_loai>02</ct18e_2_noiCap_loai>
+          <ct18e_2_noiCap_ten />
+          <ct18e_2_noiCap_ma />
+          <ct18f_ma>3000</ct18f_ma>
+          <ct18f_ten>Giấy tờ khác</ct18f_ten>
+          <ct18f_soGiayToKhac />
+          <ct18f_1_ngayCap xsi:nil="true" />
+          <ct18f_2_noiCap_loai>03</ct18f_2_noiCap_loai>
+          <ct18f_2_noiCap_ten />
+          <ct18f_2_noiCap_ma />
+        </CNKDKhongCoCMND_CCCD>
+        <CT18g>
+          <ct18g_soNha />
+          <ct18g_maPhuong />
+          <ct18g_tenPhuong />
+          <ct18g_maQuan />
+          <ct18g_tenQuan />
+          <ct18g_maTinh />
+          <ct18g_tenTinh />
+        </CT18g>
+        <CT18h>
+          <ct18h_soNha />
+          <ct18h_maPhuong />
+          <ct18h_tenPhuong />
+          <ct18h_maQuan />
+          <ct18h_tenQuan />
+          <ct18h_maTinh />
+          <ct18h_tenTinh />
+        </CT18h>
+        <CT18i>
+          <ct18i_soGiayTo />
+          <ct18i_ngayCap xsi:nil="true" />
+          <ct18i_coQuanCap />
+        </CT18i>
+        <ct18k>0</ct18k>
+        <ToChucKThay>
+          <ct22 />
+          <ct23 xsi:nil="true" />
+          <ct24 />
+          <ct25 />
+          <ct26 />
+          <ct27 />
+        </ToChucKThay>
+      </Header>
+      <KKThueGTGT_TNCN>
+        <DoanhThuThueGTGT>
+          <ct28>0</ct28>
+          <ct29>0</ct29>
+          <ct30>0</ct30>
+          <ct31>0</ct31>
+          <ct32>0</ct32>
+        </DoanhThuThueGTGT>
+        <SoThueGTGT>
+          <ct28>0</ct28>
+          <ct29>0</ct29>
+          <ct30>0</ct30>
+          <ct31>0</ct31>
+          <ct32>0</ct32>
+        </SoThueGTGT>
+        <DoanhThuThueTNCN>
+          <ct28>0</ct28>
+          <ct29>0</ct29>
+          <ct30>0</ct30>
+          <ct31>0</ct31>
+          <ct32>0</ct32>
+        </DoanhThuThueTNCN>
+        <SoThueTNCN>
+          <ct28>0</ct28>
+          <ct29>0</ct29>
+          <ct30>0</ct30>
+          <ct31>0</ct31>
+          <ct32>0</ct32>
+        </SoThueTNCN>
+      </KKThueGTGT_TNCN>
+      <KKhaiThueTTDB>
+        <CTietKKhaiThueTTDB id="ID_1">
+          <ct2_ma />
+          <ct2_ten />
+          <ct3 />
+          <ct4 />
+          <ct5>0</ct5>
+          <ct6>0</ct6>
+          <ct7>0</ct7>
+        </CTietKKhaiThueTTDB>
+        <tong_ct5>0</tong_ct5>
+        <tong_ct7>0</tong_ct7>
+      </KKhaiThueTTDB>
+      <KKhaiTBVMT_TN>
+        <ThueTaiNguyen>
+          <CTietThueTaiNguyen id="ID_1">
+            <ct2_ma />
+            <ct2_ten />
+            <ct3 />
+            <ct4 />
+            <ct5>0</ct5>
+            <ct6>0</ct6>
+            <ct7>0</ct7>
+            <ct8>0</ct8>
+          </CTietThueTaiNguyen>
+          <tongCong>0</tongCong>
+        </ThueTaiNguyen>
+        <ThueBVMT>
+          <CTietThueBVMT id="ID_1">
+            <ct2_ma />
+            <ct2_ten />
+            <ct3 />
+            <ct4 />
+            <ct5>0</ct5>
+            <ct6>0</ct6>
+            <ct8>0</ct8>
+          </CTietThueBVMT>
+          <tongCong>0</tongCong>
+        </ThueBVMT>
+        <PhiBVMT>
+          <CTietPhiBVMT id="ID_1">
+            <ct2_ma />
+            <ct2_ten />
+            <ct3 />
+            <ct4 />
+            <ct5>0</ct5>
+            <ct6>0</ct6>
+            <ct8>0</ct8>
+          </CTietPhiBVMT>
+          <tongCong>0</tongCong>
+        </PhiBVMT>
+      </KKhaiTBVMT_TN>
+    </CTieuTKhaiChinh>
+    <PLuc>
+      <PLuc_01_2_BK_HDKD>
+        <VlieuDcuSPHH>
+          <BKeVLDCSPHH>
+            <CTietHKDCNKD id="ID_1" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue">
+              <ct06>    thanhvd check hàng hóa</ct06>
+              <ct07>Cái</ct07>
+              <ct08>0</ct08>
+              <ct09>0</ct09>
+              <ct10>600</ct10>
+              <ct11>0</ct11>
+              <ct12>0</ct12>
+              <ct13>0</ct13>
+              <ct14>600</ct14>
+              <ct15>0</ct15>
+            </CTietHKDCNKD>
+            <CTietHKDCNKD id="ID_2" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue">
+              <ct06>    Đùi cừu có xương New Zealand đông lạnh (300g)</ct06>
+              <ct07>Khay</ct07>
+              <ct08>0</ct08>
+              <ct09>0</ct09>
+              <ct10>10</ct10>
+              <ct11>1000000</ct11>
+              <ct12>0</ct12>
+              <ct13>0</ct13>
+              <ct14>10</ct14>
+              <ct15>0</ct15>
+            </CTietHKDCNKD>
+            <CTietHKDCNKD id="ID_3" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue">
+              <ct06>    Test update</ct06>
+              <ct07>Cái</ct07>
+              <ct08>0</ct08>
+              <ct09>0</ct09>
+              <ct10>10</ct10>
+              <ct11>1000000</ct11>
+              <ct12>0</ct12>
+              <ct13>0</ct13>
+              <ct14>10</ct14>
+              <ct15>0</ct15>
+            </CTietHKDCNKD>
+            <CTietHKDCNKD id="ID_4" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue">
+              <ct06>      2345 test</ct06>
+              <ct07>Cái</ct07>
+              <ct08>0</ct08>
+              <ct09>0</ct09>
+              <ct10>0</ct10>
+              <ct11>0</ct11>
+              <ct12>30</ct12>
+              <ct13>0</ct13>
+              <ct14>-30</ct14>
+              <ct15>0</ct15>
+            </CTietHKDCNKD>
+            <CTietHKDCNKD id="ID_5" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue">
+              <ct06>    Lõi bắp vai bò New Zealand đông lạnh (300g)</ct06>
+              <ct07>Khay</ct07>
+              <ct08>0</ct08>
+              <ct09>0</ct09>
+              <ct10>1010</ct10>
+              <ct11>100900000</ct11>
+              <ct12>1</ct12>
+              <ct13>330000</ct13>
+              <ct14>1009</ct14>
+              <ct15>-15</ct15>
+            </CTietHKDCNKD>
+            <CTietHKDCNKD id="ID_6" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue">
+              <ct06>    Đùi cừu có xương New Zealand đông lạnh (300g)</ct06>
+              <ct07>Khay</ct07>
+              <ct08>0</ct08>
+              <ct09>0</ct09>
+              <ct10>0</ct10>
+              <ct11>0</ct11>
+              <ct12>2</ct12>
+              <ct13>1276000</ct13>
+              <ct14>-2</ct14>
+              <ct15>-58</ct15>
+            </CTietHKDCNKD>
+            <CTietHKDCNKD id="ID_7" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue">
+              <ct06>    thanhvd check hàng hóa</ct06>
+              <ct07>Cái</ct07>
+              <ct08>0</ct08>
+              <ct09>0</ct09>
+              <ct10>128</ct10>
+              <ct11>428813960</ct11>
+              <ct12>740</ct12>
+              <ct13>212000000</ct13>
+              <ct14>-612</ct14>
+              <ct15>8980.77</ct15>
+            </CTietHKDCNKD>
+            <CTietHKDCNKD id="ID_8" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue">
+              <ct06>    thanhvd check hàng hóa 1</ct06>
+              <ct07>Cái</ct07>
+              <ct08>1000</ct08>
+              <ct09>100000000</ct09>
+              <ct10>477</ct10>
+              <ct11>455593077</ct11>
+              <ct12>1436</ct12>
+              <ct13>840000000</ct13>
+              <ct14>41</ct14>
+              <ct15>-9270.77</ct15>
+            </CTietHKDCNKD>
+            <CTietHKDCNKD id="ID_9" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue">
+              <ct06>    thanhvd check hàng hóa 2</ct06>
+              <ct07>Cái</ct07>
+              <ct08>1000</ct08>
+              <ct09>100000000</ct09>
+              <ct10>300</ct10>
+              <ct11>21000000</ct11>
+              <ct12>30</ct12>
+              <ct13>0</ct13>
+              <ct14>1270</ct14>
+              <ct15>0</ct15>
+            </CTietHKDCNKD>
+            <CTietHKDCNKD id="ID_10" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue">
+              <ct06>    Vật tư 01</ct06>
+              <ct07>Cái</ct07>
+              <ct08>0</ct08>
+              <ct09>0</ct09>
+              <ct10>206</ct10>
+              <ct11>298688653</ct11>
+              <ct12>7</ct12>
+              <ct13>-6250000</ct13>
+              <ct14>199</ct14>
+              <ct15>13558.62</ct15>
+            </CTietHKDCNKD>
+            <CTietHKDCNKD id="ID_11" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue">
+              <ct06>    Vật tư 02</ct06>
+              <ct07>Cái</ct07>
+              <ct08>0</ct08>
+              <ct09>0</ct09>
+              <ct10>42</ct10>
+              <ct11>16505883</ct11>
+              <ct12>5</ct12>
+              <ct13>0</ct13>
+              <ct14>37</ct14>
+              <ct15>333.59</ct15>
+            </CTietHKDCNKD>
+            <CTietHKDCNKD id="ID_12" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue">
+              <ct06>    Vật tư 03</ct06>
+              <ct07>Cái</ct07>
+              <ct08>0</ct08>
+              <ct09>0</ct09>
+              <ct10>105</ct10>
+              <ct11>35140994</ct11>
+              <ct12>10</ct12>
+              <ct13>0</ct13>
+              <ct14>95</ct14>
+              <ct15>961.81</ct15>
+            </CTietHKDCNKD>
+            <CTietHKDCNKD id="ID_13" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue">
+              <ct06>  </ct06>
+              <ct07>
+              </ct07>
+              <ct08>0</ct08>
+              <ct09>0</ct09>
+              <ct10>1</ct10>
+              <ct11>100000</ct11>
+              <ct12>0</ct12>
+              <ct13>0</ct13>
+              <ct14>1</ct14>
+              <ct15>0</ct15>
+            </CTietHKDCNKD>
+            <CTietHKDCNKD id="ID_14" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue">
+              <ct06>  </ct06>
+              <ct07>
+              </ct07>
+              <ct08>0</ct08>
+              <ct09>0</ct09>
+              <ct10>2</ct10>
+              <ct11>60000</ct11>
+              <ct12>0</ct12>
+              <ct13>0</ct13>
+              <ct14>2</ct14>
+              <ct15>0</ct15>
+            </CTietHKDCNKD>
+            <CTietHKDCNKD id="ID_15" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue">
+              <ct06>  </ct06>
+              <ct07>
+              </ct07>
+              <ct08>0</ct08>
+              <ct09>0</ct09>
+              <ct10>1</ct10>
+              <ct11>2000</ct11>
+              <ct12>0</ct12>
+              <ct13>0</ct13>
+              <ct14>1</ct14>
+              <ct15>0</ct15>
+            </CTietHKDCNKD>
+            <CTietHKDCNKD id="ID_16" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue">
+              <ct06>  </ct06>
+              <ct07>
+              </ct07>
+              <ct08>0</ct08>
+              <ct09>0</ct09>
+              <ct10>30</ct10>
+              <ct11>3000000</ct11>
+              <ct12>100</ct12>
+              <ct13>0</ct13>
+              <ct14>-70</ct14>
+              <ct15>0</ct15>
+            </CTietHKDCNKD>
+            <CTietHKDCNKD id="ID_17" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue">
+              <ct06>  </ct06>
+              <ct07>
+              </ct07>
+              <ct08>0</ct08>
+              <ct09>0</ct09>
+              <ct10>5</ct10>
+              <ct11>0</ct11>
+              <ct12>5</ct12>
+              <ct13>2000000</ct13>
+              <ct14>-5</ct14>
+              <ct15>0</ct15>
+            </CTietHKDCNKD>
+            <CTietHKDCNKD id="ID_18" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue">
+              <ct06>  </ct06>
+              <ct07>
+              </ct07>
+              <ct08>0</ct08>
+              <ct09>0</ct09>
+              <ct10>0</ct10>
+              <ct11>0</ct11>
+              <ct12>200</ct12>
+              <ct13>0</ct13>
+              <ct14>-200</ct14>
+              <ct15>0</ct15>
+            </CTietHKDCNKD>
+            <CTietHKDCNKD id="ID_19" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue">
+              <ct06>  </ct06>
+              <ct07>
+              </ct07>
+              <ct08>0</ct08>
+              <ct09>0</ct09>
+              <ct10>0</ct10>
+              <ct11>0</ct11>
+              <ct12>1100</ct12>
+              <ct13>10000000</ct13>
+              <ct14>-1100</ct14>
+              <ct15>0</ct15>
+            </CTietHKDCNKD>
+            <CTietHKDCNKD id="ID_20" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue">
+              <ct06>  </ct06>
+              <ct07>
+              </ct07>
+              <ct08>0</ct08>
+              <ct09>0</ct09>
+              <ct10>37</ct10>
+              <ct11>46658246</ct11>
+              <ct12>52</ct12>
+              <ct13>107450000</ct13>
+              <ct14>-15</ct14>
+              <ct15>-2573.25</ct15>
+            </CTietHKDCNKD>
+            <CTietHKDCNKD id="ID_21" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue">
+              <ct06>  </ct06>
+              <ct07>
+              </ct07>
+              <ct08>0</ct08>
+              <ct09>0</ct09>
+              <ct10>31</ct10>
+              <ct11>68451008</ct11>
+              <ct12>3</ct12>
+              <ct13>0</ct13>
+              <ct14>28</ct14>
+              <ct15>143.07</ct15>
+            </CTietHKDCNKD>
+            <CTietHKDCNKD id="ID_22" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue">
+              <ct06>  </ct06>
+              <ct07>
+              </ct07>
+              <ct08>0</ct08>
+              <ct09>0</ct09>
+              <ct10>32</ct10>
+              <ct11>6566496</ct11>
+              <ct12>18</ct12>
+              <ct13>23660000</ct13>
+              <ct14>9</ct14>
+              <ct15>-328.82</ct15>
+            </CTietHKDCNKD>
+            <CTietHKDCNKD id="ID_23" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue">
+              <ct06>  </ct06>
+              <ct07>
+              </ct07>
+              <ct08>0</ct08>
+              <ct09>0</ct09>
+              <ct10>3</ct10>
+              <ct11>3003000</ct11>
+              <ct12>0</ct12>
+              <ct13>0</ct13>
+              <ct14>3</ct14>
+              <ct15>136.5</ct15>
+            </CTietHKDCNKD>
+            <CTietHKDCNKD id="ID_24" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue">
+              <ct06>      2345 test</ct06>
+              <ct07>Cái</ct07>
+              <ct08>0</ct08>
+              <ct09>0</ct09>
+              <ct10>0</ct10>
+              <ct11>0</ct11>
+              <ct12>1</ct12>
+              <ct13>0</ct13>
+              <ct14>-1</ct14>
+              <ct15>0</ct15>
+            </CTietHKDCNKD>
+            <CTietHKDCNKD id="ID_25" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue">
+              <ct06>    Lõi bắp vai bò New Zealand đông lạnh (300g)</ct06>
+              <ct07>Khay</ct07>
+              <ct08>0</ct08>
+              <ct09>0</ct09>
+              <ct10>0</ct10>
+              <ct11>100000000</ct11>
+              <ct12>0</ct12>
+              <ct13>0</ct13>
+              <ct14>0</ct14>
+              <ct15>0</ct15>
+            </CTietHKDCNKD>
+            <CTietHKDCNKD id="ID_26" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue">
+              <ct06>    thanhvd check hàng hóa</ct06>
+              <ct07>Cái</ct07>
+              <ct08>0</ct08>
+              <ct09>0</ct09>
+              <ct10>0</ct10>
+              <ct11>0</ct11>
+              <ct12>10</ct12>
+              <ct13>0</ct13>
+              <ct14>-10</ct14>
+              <ct15>0</ct15>
+            </CTietHKDCNKD>
+            <CTietHKDCNKD id="ID_27" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue">
+              <ct06>    Vật tư 01</ct06>
+              <ct07>Cái</ct07>
+              <ct08>0</ct08>
+              <ct09>0</ct09>
+              <ct10>0</ct10>
+              <ct11>116985000</ct11>
+              <ct12>1</ct12>
+              <ct13>2200000000</ct13>
+              <ct14>-1</ct14>
+              <ct15>8154892.5</ct15>
+            </CTietHKDCNKD>
+            <CTietHKDCNKD id="ID_28" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue">
+              <ct06>    Vật tư 02</ct06>
+              <ct07>Cái</ct07>
+              <ct08>0</ct08>
+              <ct09>0</ct09>
+              <ct10>0</ct10>
+              <ct11>0</ct11>
+              <ct12>10</ct12>
+              <ct13>0</ct13>
+              <ct14>-10</ct14>
+              <ct15>0</ct15>
+            </CTietHKDCNKD>
+            <CTietHKDCNKD id="ID_29" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue">
+              <ct06>  </ct06>
+              <ct07>
+              </ct07>
+              <ct08>0</ct08>
+              <ct09>0</ct09>
+              <ct10>0</ct10>
+              <ct11>0</ct11>
+              <ct12>1</ct12>
+              <ct13>0</ct13>
+              <ct14>-1</ct14>
+              <ct15>0</ct15>
+            </CTietHKDCNKD>
+            <ct17 xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue">0</ct17>
+            <ct19 xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue">0</ct19>
+            <ct21 xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue">0</ct21>
+            <ct23 xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue">0</ct23>
+          </BKeVLDCSPHH>
+        </VlieuDcuSPHH>
+        <ChiPhiQL>
+          <ct24>0</ct24>
+          <ct25>0</ct25>
+          <ct26>0</ct26>
+          <ct27>0</ct27>
+          <ct28>6676666</ct28>
+          <ct29>0</ct29>
+          <ct30>0</ct30>
+          <ct31>6676666</ct31>
+        </ChiPhiQL>
+      </PLuc_01_2_BK_HDKD>
+    </PLuc>
+  </HSoKhaiThue>
+</HSoThueDTu>
